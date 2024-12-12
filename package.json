@@ -30,6 +30,7 @@
     "@types/leaflet": "^1.9.12",
     "ionicons": "^7.0.0",
     "leaflet": "^1.9.4",
+    "leaflet.awesome-markers": "^2.0.5",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.2"

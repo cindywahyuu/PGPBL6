@@ -1,0 +1,167 @@
+{
+  "type": "FeatureCollection",
+  "name": "Pendakian",
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "urn:ogc:def:crs:OGC:1.3:CRS84"
+    }
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "No": 1,
+        "Nama Gunung": "Gunung Bismo",
+        "Longitude": 109.8888281,
+        "Latitude": -7.23882578,
+        "Jalur Pendakian": "Sikunang; Silandak; Deroduwur; Pulosari; Ngandam",
+        "Harga Simaksi": "30 Ribu",
+        "Estimasi Pendakian": "3-4 Jam",
+        "Jumlah Pos": "4 Pos",
+        "Tinggi Gunung": "2.365 Mdpl",
+        "View": "data:image/jpeg;base64,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"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          109.8888281,
+          -7.23882578
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "No": 2,
+        "Nama Gunung": "Gunung Kembang",
+        "Longitude": 109.8960219,
+        "Latitude": -7.48687251,
+        "Jalur Pendakian": "Blembem; Lengkong",
+        "Harga Simaksi": "35 Ribu",
+        "Estimasi Pendakian": "3-5 Jam",
+        "Jumlah Pos": "4 Pos",
+        "Tinggi Gunung": "2.340 Mdpl",
+        "View":"https://imgcdn.espos.id/@espos/images/2023/08/Gunung-Kembang-Wonosobo.jpg?quality=60"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          109.8960219,
+          -7.48687251
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "No": 3,
+        "Nama Gunung": "Gunung SiButhak",
+        "Longitude": 109.9890835,
+        "Latitude": -7.252411694,
+        "Jalur Pendakian": "Sikatok",
+        "Harga Simaksi": "35 Ribu",
+        "Estimasi Pendakian": "4-5 Jam",
+        "Jumlah Pos": "4 Pos",
+        "Tinggi Gunung": "2.547 Mdpl",
+        "View":"https://www.hipwee.com/wp-content/uploads/2019/07/hipwee-PicsArt_07-25-02.48.45.jpg"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          109.9890835,
+          -7.252411694
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "No": 4,
+        "Nama Gunung": "Gunung Mongkrang",
+        "Longitude": 111.1861714,
+        "Latitude": -7.688712598,
+        "Jalur Pendakian": "Tlogo Dringo",
+        "Harga Simaksi": "20 Ribu",
+        "Estimasi Pendakian": "1-2 Jam",
+        "Jumlah Pos": "3 Pos",
+        "Tinggi Gunung": "1.919 Mdpl",
+        "View":"https://static.promediateknologi.id/crop/0x0:0x0/0x0/webp/photo/p2/230/2024/10/21/mongkrang-2781528725.png"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          111.1861714,
+          -7.688712598
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "No": 5,
+        "Nama Gunung": "Gunung Ungaran",
+        "Longitude": 110.3480717,
+        "Latitude": -7.182806499,
+        "Jalur Pendakian": "Mawar, Rantunan",
+        "Harga Simaksi": "30 Ribu",
+        "Estimasi Pendakian": "3-4 Jam",
+        "Jumlah Pos": "5 Pos",
+        "Tinggi Gunung": "2.050 Mdpl",
+        "View":"https://indonesia-az.com/wp-content/uploads/2024/02/Sabana-Ungaran-Indonesia-A-Z-768x576.jpeg"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.3480717,
+          -7.182806499
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "No": 6,
+        "Nama Gunung": "Gunung Prau",
+        "Longitude": 109.9276254,
+        "Latitude": -7.191044614,
+        "Jalur Pendakian": "Patak Banteng; Dieng; Wates; IgirMranak; Kalilembu; Dwarawati",
+        "Harga Simaksi": "30 Ribu",
+        "Estimasi Pendakian": "3-4 Jam",
+        "Jumlah_Pos": "4 Pos",
+        "Tinggi Gunung": "2.565 Mdpl",
+        "View": "https://asset.kompas.com/crops/nsstDCb0jKgjVNCY0GnGLucnPe4=/0x0:1650x1100/750x500/data/photo/2021/06/17/60cabb1a66bb6.jpg"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          109.9276254,
+          -7.191044614
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "No": 7,
+        "Nama Gunung": "Gunung Andong",
+        "Longitude": 110.3703228,
+        "Latitude": -7.38989534,
+        "Jalur Pendakian": "Sawit; Pendem; Gogik",
+        "Harga Simaksi": "15 Ribu",
+        "Estimasi Pendakian": "1.5 - 2 Jam",
+        "Jumlah Pos": "3 Pos",
+        "Tinggi Gunung": "1.726 Mdpl",
+        "View":"https://busdiscovery.id/wp-content/uploads/2023/10/Gunung-Andong.jpeg"
+
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.3703228,
+          -7.38989534
+        ]
+      }
+    }
+  ]
+}

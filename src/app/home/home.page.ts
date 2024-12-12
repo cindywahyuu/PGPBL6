@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import * as L from 'leaflet';
+import * as geojson from 'geojson'; // Opsional untuk tipe GeoJSON
 
 @Component({
   selector: 'app-home',
@@ -23,40 +24,76 @@ export class HomePage {
     });
   }
 
-  ionViewDidEnter(){
+  ionViewDidEnter() {
     // Inisialisasi peta
-    this.map = L.map('mapId').setView([51.505, -0.09], 13);
+    this.map = L.map('mapId').setView([-7.157302570855502, 110.04615381902656], 10);
 
     // Basemap OpenStreetMap
     const openStreetMap = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     });
-
-    // Basemap ESRI World Imagery
-    const esriWorldImagery = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{x}/{y}', {
-      attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
-    });
-
-    // Basemap CartoDB Positron
-    const cartoDBPositron = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
-      attribution: '&copy; <a href="https://www.carto.com/">CartoDB</a>'
-    });
-
-    // Menambahkan layer control untuk memilih basemap
-    const baseMaps = {
-      "OpenStreetMap": openStreetMap,
-      "ESRI World Imagery": esriWorldImagery,
-      "CartoDB Positron": cartoDBPositron
-    };
-
-    L.control.layers(baseMaps).addTo(this.map);
-
-    // Set default basemap
     openStreetMap.addTo(this.map);
 
-    // Menambahkan marker dengan popup informasi
-    const marker = L.marker([51.5, -0.09]).addTo(this.map)
-      .bindPopup('<b>Hello world!</b><br>I am in london.')
-      .openPopup();
+    // Muat data pendakian
+    this.loadGeoJSON('/assets/Pendakian.geojson', {
+      style: {
+        color: 'green',
+        weight: 3,
+        opacity: 1,
+      },
+      popup: true,
+    });
+  }
+
+  loadGeoJSON(url: string, options: { style?: L.PathOptions; popup?: boolean }) {
+    fetch(url)
+      .then(response => response.json())
+      .then((data: geojson.FeatureCollection) => {
+        // Tentukan ikon gunung
+        const mountainIcon = L.icon({
+          iconUrl: 'https://cdn-icons-png.flaticon.com/512/684/684908.png', // Ganti dengan URL gambar ikon gunung
+          iconSize: [32, 32], // Ukuran ikon
+          iconAnchor: [16, 32], // Titik jangkar ikon
+          popupAnchor: [0, -32], // Jarak popup dari ikon
+        });
+
+        // Tambahkan GeoJSON ke peta
+        const layer = L.geoJSON(data, {
+          style: options.style,
+          pointToLayer: (feature, latlng) => {
+            // Gunakan ikon gunung pada marker
+            return L.marker(latlng, { icon: mountainIcon });
+          },
+          onEachFeature: (feature, layer) => {
+            if (options.popup && feature.properties) {
+              // Ambil informasi dari properti
+              const namaGunung = feature.properties["Nama Gunung"];
+              const hargaSimaksi = feature.properties["Harga Simaksi"];
+              const jalurPendakian = feature.properties["Jalur Pendakian"];
+              const tinggiGunung = feature.properties["Tinggi Gunung"];
+              const viewGunung = feature.properties["View"]
+
+              // Konten popup yang akan ditampilkan
+              const popupContent = `
+
+                <b>Nama Gunung:</b> ${namaGunung}<br>
+                <b>Harga Simaksi:</b> ${hargaSimaksi}<br>
+                <b>Jalur Pendakian:</b> ${jalurPendakian}<br>
+                <b>Tinggi Gunung:</b> ${tinggiGunung}<br>
+                <img src="${viewGunung}" alt="${viewGunung}" style="width: 100%; max-width: 200px;"/>
+              `;
+
+              // Menambahkan popup pada layer
+              layer.bindPopup(popupContent);
+            }
+          },
+        }).addTo(this.map);
+
+        // Sesuaikan tampilan peta berdasarkan layer pertama
+        if (options.popup) {
+          this.map.fitBounds(layer.getBounds());
+        }
+      })
+      .catch(error => console.error(`Error loading GeoJSON from ${url}:`, error));
   }
 }
