@@ -51,7 +51,7 @@ export class HomePage {
       .then((data: geojson.FeatureCollection) => {
         // Tentukan ikon gunung
         const mountainIcon = L.icon({
-          iconUrl: 'https://cdn-icons-png.flaticon.com/512/684/684908.png', // Ganti dengan URL gambar ikon gunung
+          iconUrl: 'assets/icon/Gunung.png', // Ganti dengan URL gambar ikon gunung
           iconSize: [32, 32], // Ukuran ikon
           iconAnchor: [16, 32], // Titik jangkar ikon
           popupAnchor: [0, -32], // Jarak popup dari ikon
